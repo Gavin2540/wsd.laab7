@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Catalog</title>
+    <style>
+        /* Basic styles for layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .filter-sort {
+            margin-bottom: 20px;
+        }
+        .book-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .book {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: calc(33.333% - 20px);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .book img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .pagination button {
+            padding: 5px 10px;
+            margin: 0 2px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        .pagination button.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .loading, .error {
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Catalog</h1>
+        
+        <div class="filter-sort">
+            <!-- Filter by Genre -->
+            <label for="genre-filter">Filter by Genre:</label>
+            <select id="genre-filter">
+                <option value="all">All</option>
+                <option value="Fiction">Fiction</option>
+                <option value="Science Fiction">Science Fiction</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Non-Fiction">Non-Fiction</option>
+            </select>
+
+            <!-- Sorting Options -->
+            <label for="sort-books">Sort by:</label>
+            <select id="sort-books">
+                <option value="none">None</option>
+                <option value="title">Title (A-Z)</option>
+                <option value="published">Published (Newest First)</option>
+            </select>
+        </div>
+
+        <!-- Book List -->
+        <div id="book-list" class="book-list"></div>
+        <div id="loading" class="loading">Loading...</div>
+        <div id="error" class="error"></div>
+
+        <!-- Pagination -->
+        <div id="pagination" class="pagination"></div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
